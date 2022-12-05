@@ -1,17 +1,27 @@
 # python-can-loxone-heating-integration
 
-Integration od the Elfatherm/Kromschröder heating controller into Loxone using a Raspberry Pi and Python
+Integration od the Elster/Elfatherm/Kromschröder heating controller into Loxone using a Raspberry Pi and Python
 
 ## Hardware
 
 * [Loxone Miniserver Gen 1](https://www.loxone.com/enen/kb/miniserver-gen-1/)
 * [Raspberry Pi 3 Model B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/)
 * [Innomaker USB2CAN](https://www.inno-maker.com/product/usb-can/)
-* Kromschröder/Elfatherm E8.034 and E8.1124
+* Elster/Kromschröder/Elfatherm E8.0634 and E8.1124
+
+## Tasks and status
+
+- [x] Set up Raspberry Pi
+- [x] Create connection to CAN bus
+- [ ] Create virtual inputs in Loxone
+- [ ] Send test values to virtual inputs
+- [ ] Create mapping of values needed for the visualization
+- [ ] Write Python program to read values from CAN bus
+- [ ] Extend Python program to send values to Loxone via HTTP
 
 ## Preparation tasks
 
-### Setting up the Raspberry Pi
+### Set up the Raspberry Pi
 
 Used image: Raspberry Pi OS Lite (64-bit), available on https://www.raspberrypi.com/software/operating-systems/
 
@@ -24,7 +34,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-### Connecting the heating controller
+### Connect the heating controller
 
 The USB2CAN interface is connected to the respective bus pins in the heating controller named +, - and L.
 
@@ -62,8 +72,5 @@ stdbuf -oL ./can_scan can0 79f total | tee can_scan.out
 ```
 `tee` is used in combination with `stdbuf` to see the progress and save the output to _can_scan.out_.
 
-### Preparing the Loxone program
-
-## 
-
+### Create virtual inputs in Loxone
 
