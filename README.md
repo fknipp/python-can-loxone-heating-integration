@@ -36,7 +36,7 @@ sudo apt upgrade
 
 ### Connect the heating controller
 
-The USB2CAN interface is connected to the respective bus pins in the heating controller named +, - and L.
+The USB2CAN interface is connected to the respective bus pins in the heating controller named H, L and -. 
 
 The USB2CAN interface is connected to the Raspberry Pi using USB.
 
