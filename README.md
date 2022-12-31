@@ -74,3 +74,35 @@ stdbuf -oL ./can_scan can0 79f total | tee can_scan.out
 
 ### Create virtual inputs in Loxone
 
+It's recommended to perform the following steps in Loxone Config:
+
+1. Create a room for the heating. It will be used to restrict permissions on this single room.
+1. Create a user for the API calls. The user *heating* will be used in the following example calls.
+   * Create and remember a password for this user.
+   * Manage the permissions to to give the user access to the newly created room as part of the standard user group.
+
+Afterwards, a virtual input is created for every value to be shown in the user interface. The names of the virtual inputs is later used to send values to these inputs.
+
+1. Select *Virtual Inputs* in the periphery pane.
+1. Create a new *Virtual Input* by clicking on the icon in the menu bar.
+1. Set the name of the input in the properties pane.
+1. Select the previously created room for this input.
+1. Unset *Use Digital Input*.
+1. Set the unit accordingly, e. g. *<v.1>°C*
+1. Set *Show status only*.
+
+Repeat these steps for all virtual inputs.
+
+### Send values to virtual inputs
+
+The function of the virtual inputs can be tested by
+
+    curl -u heating:password http://ip_of_loxone/dev/sps/io/name_of_input/value
+
+e. g.
+
+    curl -u heating:password http://10.0.0.14/dev/sps/io/outside_temperature/12.0
+
+
+API documentation in German: https://www.loxone.com/dede/kb/webservices/
+
