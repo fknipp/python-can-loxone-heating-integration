@@ -13,11 +13,11 @@ Integration od the Elster/Elfatherm/Kromschröder heating controller into Loxone
 
 - [x] Set up Raspberry Pi
 - [x] Create connection to CAN bus
-- [ ] Create virtual inputs in Loxone
-- [ ] Send test values to virtual inputs
-- [ ] Create mapping of values needed for the visualization
-- [ ] Write Python program to read values from CAN bus
-- [ ] Extend Python program to send values to Loxone via HTTP
+- [x] Create virtual inputs in Loxone
+- [x] Send test values to virtual inputs
+- [x] Create mapping of values needed for the visualization
+- [x] Write Python program to read values from CAN bus
+- [x] Extend Python program to send values to Loxone via HTTP
 
 ## Preparation tasks
 
@@ -106,3 +106,10 @@ e. g.
 
 API documentation in German: https://www.loxone.com/dede/kb/webservices/
 
+## Implementation
+
+An already existing project on GitHub showed much of the needed functionality: https://github.com/danielbayerlein/sepicker
+
+I extended the project by implementing the missing feature of sending the HTTP request.
+
+My project can be found on https://github.com/fknipp/canpicker
